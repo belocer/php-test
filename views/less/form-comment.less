@@ -5,6 +5,9 @@
   form.form {
     .col();
     .size(4);
+    .size-smd(8);
+    .size-md(10);
+    .size-sm(12);
   }
   .form__header {
     padding-top: 20px;
@@ -30,6 +33,9 @@
     border-radius: 3px;
     outline: none;
     text-indent: 10px;
+    .sm-block({
+      width: 100%;
+    });
 
     &:focus,
     &:active
@@ -46,6 +52,7 @@
     border-radius: 3px;
     outline: none;
     padding: 5px 5px 5px 10px;
+    box-sizing: border-box;
 
     &:focus,
     &:active
