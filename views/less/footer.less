@@ -1,0 +1,33 @@
+.footer {
+  background: @bg_blue;
+  width: 100%;
+  height: 70px;
+  
+  .footer__list {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.footer__item {
+  &:not(:last-child) {
+    margin-right: 30px;
+  }
+
+  .footer__link {
+    i {
+      font-size: 24px;
+      color: white;
+      transition: all .3s;
+    }
+  }
+
+  .footer__link:hover {
+    i {
+      color: #cee5fd;
+      transition: all .3s;
+    }
+  }
+}

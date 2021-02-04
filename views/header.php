@@ -9,4 +9,33 @@
     <link rel="stylesheet" href="views/css/style.css">
 </head>
 <body>
-<header>header</header>
+
+<!--<div class="debug">
+    <div>
+        <div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </div>
+</div>-->
+
+<header class="header">
+    <div class="wrapper db_h100">
+        <div class="logo">
+            <a href="#" class="logo__link">
+                <span class="logo__icon"><i class="fa fa-grav" aria-hidden="true"></i></span>
+                <span class="logo__title">PHP 8</span>
+            </a>
+        </div>
+    </div>
+</header>

@@ -72,7 +72,7 @@ function cleanimg () {
 }
 
 function cleandist () {
-	return del('view/dist/**/*', {force: true});
+	return del('views/dist/**/*', {force: true});
 }
 
 function buildcopy () {
@@ -87,7 +87,7 @@ function buildcopy () {
 
 const smartGridConf = {
   outputStyle: preprocessor,
-  columns: 10,
+  columns: 12,
   offset: '15px',
   mobileFirst: false,
   container: {
@@ -127,12 +127,12 @@ const smartGridConf = {
 }
 
 function grid () {
-  smartGrid('view/' + preprocessor, smartGridConf)
+  smartGrid('views/' + preprocessor, smartGridConf)
 }
 
 function criticalgenerate () {
   return critical.generate({
-    base: './view',
+    base: './views',
     src: 'index.php',
     css: ['css/app.min.css'],
     width: 430,

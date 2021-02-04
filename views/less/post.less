@@ -1,0 +1,39 @@
+.post {
+  padding-top: 20px;
+  padding-bottom: 20px;
+
+  &__header {
+    font-size: 32px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    text-transform: uppercase;
+  }
+
+  .post__text-container {
+    padding-top: 20px;
+    padding-bottom: 20px;
+    .row-flex();
+
+    .wrap_img {
+      margin-right: 20px;
+      margin-bottom: 20px;
+      .col();
+      .size(2);
+
+      img {
+        border-radius: 5px;
+        overflow: hidden;
+      }
+    }
+
+    .post__text {
+      .col();
+      .size(7);
+
+      p {
+        text-indent: 20px;
+        text-align: justify;
+      }
+    }
+  }
+}
