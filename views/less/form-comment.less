@@ -66,6 +66,7 @@
 .form__btn {
   display: inline-block;
   width: calc(50% - 7.5px);
+  max-width: 300px;
   height: 34px;
   border: none;
   outline: none;
@@ -74,12 +75,43 @@
   border-radius: 5px;
   box-sizing: border-box;
   margin-top: 20px;
-  font-size: 16px;
+  font-size: 14px;
   transition: background-color .3s;
 
   &:hover {
     background-color: darken(@bg_blue, 7%);
     transition: all .3s;
     cursor: pointer;
+  }
+}
+
+// Анимация формы появление после клика на кнопку
+.slide-fade-enter-active {
+  transition: all .3s ease;
+}
+
+.slide-fade-leave-active {
+  transition: all .8s cubic-bezier(1.0, 0.5, 0.8, 1.0);
+}
+
+.slide-fade-enter, .slide-fade-leave-to {
+  transform: translateY(-50px);
+  opacity: 0;
+}
+
+// Ошибки
+.errors {
+  padding-top: 20px;
+  padding-bottom: 20px;
+}
+
+.errors__list {
+  margin-left: 17px;
+
+  .errors__item {
+    font-size: 14px;
+    color: darkred;
+    list-style: disc;
+    margin-bottom: 7px;
   }
 }

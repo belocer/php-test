@@ -9,8 +9,8 @@ class Dbconnect
     public function __construct()
     {
         $username = 'root';
-        $pass = 'Loito!33';
-        $host = 'mysql';
+        $pass = '';
+        $host = '127.0.0.1';
         $dbname = 'testcomment';
 
         $this->isConn = TRUE;
@@ -73,7 +73,6 @@ class Dbconnect
     public function updateRow($query, $params = [])
     {
         $this->insertRow($query, $params);
-        //$this->datab->lastInsertId(); // возвращаю id последней записи в бд // не возвращает!
     }
 
     // delete row

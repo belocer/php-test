@@ -1,0 +1,80 @@
+Html Webpack Plugin:
+<pre>
+  Error: html-webpack-plugin could not minify the generated output.
+  In production mode the html minifcation is enabled by default.
+  If you are not generating a valid html output please disable it manually.
+  You can do so by adding the following setting to your HtmlWebpackPlugin config:
+  |
+  |    minify: false
+  |
+  See https://github.com/jantimon/html-webpack-plugin#options for details.
+  For parser dedicated bugs please create an issue here:
+  https://danielruf.github.io/html-minifier-terser/
+  Parse Error: <?php 
+  require_once 'core/view.php'; 
+  // Отображаю ошибки 
+  ini_set('error_reporting', E_ALL); 
+  ini_set('display_errors', 1); 
+  ini_set('display_startup_errors', 1); 
+  $routes = explode('/', $_SERVER['REQUEST_URI']); // Разбиваем uri на элементы и кладё  м в массив 
+  $controller_name = 'Main'; 
+  $action_name = 'index'; 
+  /*// получаем контроллер 
+  if (!empty($routes[1])) { 
+      // Если первый элемент массива routes не пустой тогда кладём его в $controller_na  me иначе там остаётся слово Main 
+      $controller_name = $routes[1]; 
+  } 
+  // получаем действие 
+  if (!empty($routes[2])) { // Здесь второй эелемент массива т.е. метод который обработ  ает запрос 
+      $action_name = $routes[2]; 
+  }*/ 
+  $filename = './controllers/' . ucfirst($controller_name) . '.php'; // Путь до файла в   маленьком регистре 
+  try { 
+      // Если файл контроллера существует мы его подключаем 
+      if (file_exists($filename)) { 
+          require_once $filename; 
+      } else { 
+          throw new Exception('File not found'); 
+      } 
+      // Если если класс существует создаём экземпляр класса 
+      // ucfirst — Преобразует первый символ строки в верхний регистр 
+      $className = '\TestWorks\\' . ucfirst($controller_name); 
+      if (class_exists($className)) { 
+          $controller = new $className(); 
+      } else { 
+          throw new Exception('File found but class not found'); 
+      } 
+      // Если метод существует выполняем его 
+      if (method_exists($controller, $action_name)) { 
+          // method_exists — Проверяет, существует ли метод в данном классе, и вызываем   его без параметров или с 
+          @$controller->$action_name($routes[2] ? $routes[2] : ''); 
+      } else { 
+          throw new Exception("Method not found"); 
+      } 
+  } catch (Exception $e) { // В случае ошибки подключается файл 404.php 
+      require 'errors/404.php'; 
+  } 
+  // Третий($routes[3]) ложится параметром для метода!!!!!!!!!!!!!!!!!!<script src="./j  s/index.min.js"></script>
+  
+  - htmlparser.js:244 new HTMLParser
+    [testphp]/[html-minifier-terser]/src/htmlparser.js:244:13
+  
+  - htmlminifier.js:993 minify
+    [testphp]/[html-minifier-terser]/src/htmlminifier.js:993:3
+  
+  - htmlminifier.js:1354 Object.exports.minify
+    [testphp]/[html-minifier-terser]/src/htmlminifier.js:1354:16
+  
+  - index.js:1019 HtmlWebpackPlugin.minifyHtml
+    [testphp]/[html-webpack-plugin]/index.js:1019:46
+  
+  - index.js:435 HtmlWebpackPlugin.postProcessHtml
+    [testphp]/[html-webpack-plugin]/index.js:435:40
+  
+  - index.js:260 
+    [testphp]/[html-webpack-plugin]/index.js:260:25
+  
+  - task_queues.js:93 processTicksAndRejections
+    internal/process/task_queues.js:93:5
+  
+</pre>

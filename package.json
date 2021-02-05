@@ -8,17 +8,20 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://belocer@bitbucket.org/purpleplane/frontendcs.git"
+    "url": "git+https://github.com/belocer/php-test"
   },
   "author": "",
   "license": "ISC",
-  "homepage": "https://bitbucket.org/purpleplane/frontendcs#readme",
+  "homepage": "https://github.com/belocer/php-test",
   "devDependencies": {
+    "@babel/core": "^7.12.13",
+    "@babel/preset-env": "^7.12.13",
     "browser-sync": "^2.26.12",
     "critical": "^2.0.6",
     "del": "^6.0.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^7.0.1",
+    "gulp-babel": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
     "gulp-group-css-media-queries": "^1.2.2",
@@ -31,5 +34,8 @@
     "gulp-webp": "^4.0.1",
     "smart-grid": "^2.1.2"
   },
-  "dependencies": {}
+  "dependencies": {
+    "simple-vue-validator": "^0.16.0",
+    "vue": "^2.6.12"
+  }
 }

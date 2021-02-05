@@ -1,28 +1,34 @@
 <?php
 require_once 'core/view.php';
 
-// Отображаю ошибки
+/*// Отображаю ошибки
 ini_set('error_reporting', E_ALL);
 ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
+ini_set('display_startup_errors', 1);*/
 
 $routes = explode('/', $_SERVER['REQUEST_URI']); // Разбиваем uri на элементы и кладём в массив
 
 $controller_name = 'Main';
 $action_name = 'index';
 
-/*// получаем контроллер
+/*echo '<pre>';
+var_dump($routes);
+echo '</pre>';
+die();*/
+
+// получаем контроллер
 if (!empty($routes[1])) {
     // Если первый элемент массива routes не пустой тогда кладём его в $controller_name иначе там остаётся слово Main
     $controller_name = $routes[1];
 }
 
-// получаем действие
+// получаем метод(действие)
 if (!empty($routes[2])) { // Здесь второй эелемент массива т.е. метод который обработает запрос
     $action_name = $routes[2];
-}*/
+}
 
-$filename = './controllers/' . ucfirst($controller_name) . '.php'; // Путь до файла в маленьком регистре
+$filename = './controllers/' . $controller_name . '.php'; // Путь до файла в маленьком регистре
+
 
 try {
     // Если файл контроллера существует мы его подключаем
@@ -44,8 +50,8 @@ try {
 
     // Если метод существует выполняем его
     if (method_exists($controller, $action_name)) {
-        // method_exists — Проверяет, существует ли метод в данном классе, и вызываем его без параметров или с
-        @$controller->$action_name($routes[2] ? $routes[2] : '');
+        // method_exists — Проверяет, существует ли метод в данном классе, и вызываем его без параметров или с парам
+        $controller->$action_name($routes[3] = '');
     } else {
         throw new Exception("Method not found");
     }
