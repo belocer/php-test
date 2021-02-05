@@ -3,10 +3,10 @@ let app = new Vue({
   data() {
     return {
       showForm: false,
-      user_name: null,
-      user_email: null,
-      comment_title: null,
-      comment_text: null,
+      user_name: '',
+      user_email: '',
+      comment_title: '',
+      comment_text: '',
       errors: [],
       showForm__btn: true,
       dataComment: [],
@@ -58,13 +58,18 @@ let app = new Vue({
         .then(response => {
           if (Number.isInteger(response) && response > 0) {
             this.showForm = false
-            this.user_name = null
-            this.user_email = null
-            this.comment_title = null
-            this.comment_text = null
+            this.user_name = ''
+            this.user_email = ''
+            this.comment_title = ''
+            this.comment_text = ''
             this.getDataComment()
             alert('Комментарий добавлен.')
+          } else {
+            for(i of response) {
+              this.errors.push(i)
+            }
           }
+
           //console.log(response)
           //return data
         })

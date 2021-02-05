@@ -42,12 +42,24 @@ class Comment
 
     private function validateData()
     {
+        
+        /*echo '<pre>';
+        print_r(mb_strlen($this->user_name));
+        echo '<br>';
+        print_r(mb_strlen($this->user_email));
+        echo '<br>';
+        print_r(mb_strlen($this->comment_title));
+        echo '<br>';
+        print_r(mb_strlen($this->comment_text));
+        echo '</pre>';
+        die();*/
+        
         $this->errors = [];
         if (empty($this->user_name)
             || (mb_strlen($this->user_name) < 3)
             || (mb_strlen($this->user_name) > 50)
         ) {
-            array_push($this->errors, 'Поле "Имя" - указано не верно!');
+            array_push($this->errors, 'Поле Имя - указано не верно!');
         }
 
         if (empty($this->user_email) ||
@@ -55,21 +67,21 @@ class Comment
             || (mb_strlen($this->user_email) < 3)
             || (mb_strlen($this->user_email) > 50)
         ) {
-            array_push($this->errors, 'Указан неверный "E-mail" !');
+            array_push($this->errors, 'Указан неверный E-mail !');
         }
 
         if (empty($this->comment_title)
             || (mb_strlen($this->comment_title) < 3)
             || (mb_strlen($this->comment_title) > 50)
         ) {
-            array_push($this->errors, '"Заголовок" - должен быть больше 3 символов и меньше 50!');
+            array_push($this->errors, 'Заголовок - должен быть больше 3 символов и меньше 50!');
         }
 
         if (empty($this->comment_text)
             || (mb_strlen($this->comment_text) < 3)
             || (mb_strlen($this->comment_text) > 500)
         ) {
-            array_push($this->errors, '"Комментарий" - должен быть больше 3 символов но меньше 500!');
+            array_push($this->errors, 'Комментарий - должен быть больше 3 символов но меньше 500!');
         }
     }
 
