@@ -101,6 +101,10 @@ echo '</pre>';*/
             <section class="comments">
                 <div class="comments__wrap">
                     <h2 class="comments__header">Комментарии: </h2>
+                    <div class="sort">
+                        <button type="button" v-if="!sortBtn" @click.prevent="sortData" class="form__btn">Сначала старые сообщения</button>
+                        <button type="button" v-if="sortBtn" @click.prevent="sortData" class="form__btn">Сначала новые сообщения</button>
+                    </div>
                     <ul class="comments__list">
                         <li class="comments__item" v-for="comment in dataComment">
                             <div class="user_name">{{ comment.user_name }} :</div>

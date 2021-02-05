@@ -9,7 +9,8 @@ let app = new Vue({
       comment_text: null,
       errors: [],
       showForm__btn: true,
-      dataComment: []
+      dataComment: [],
+      sortBtn: false
     }
   },
   methods: {
@@ -89,9 +90,17 @@ let app = new Vue({
           //return data
         })
         .catch((e) => console.log(e, 'ошибка'))
+    },
+    // Сортировка
+    sortData () {
+      let arr = this.dataComment
+      this.dataComment = []
+      this.dataComment = arr.reverse()
+      this.sortBtn = !this.sortBtn
     }
   },
   created () {
+    // Загружаю комментарии из БД до ототображения контента на странице
     this.getDataComment()
   }
 })
