@@ -42,18 +42,6 @@ class Comment
 
     private function validateData()
     {
-        
-        /*echo '<pre>';
-        print_r(mb_strlen($this->user_name));
-        echo '<br>';
-        print_r(mb_strlen($this->user_email));
-        echo '<br>';
-        print_r(mb_strlen($this->comment_title));
-        echo '<br>';
-        print_r(mb_strlen($this->comment_text));
-        echo '</pre>';
-        die();*/
-        
         $this->errors = [];
         if (empty($this->user_name)
             || (mb_strlen($this->user_name) < 3)

@@ -1,20 +1,10 @@
 <?php
 require_once 'core/view.php';
 
-/*// Отображаю ошибки
-ini_set('error_reporting', E_ALL);
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);*/
-
 $routes = explode('/', $_SERVER['REQUEST_URI']); // Разбиваем uri на элементы и кладём в массив
 
 $controller_name = 'Main';
 $action_name = 'index';
-
-/*echo '<pre>';
-var_dump($routes);
-echo '</pre>';
-die();*/
 
 // получаем контроллер
 if (!empty($routes[1])) {
@@ -27,10 +17,15 @@ if (!empty($routes[2])) { // Здесь второй эелемент масси
     $action_name = $routes[2];
 }
 
-$filename = './controllers/' . $controller_name . '.php'; // Путь до файла в маленьком регистре
-
-
 try {
+
+    //if($controller_name == 'comment') {
+    //$filename = 'controllers/comment.php';
+    //} else {
+    $filename = 'controllers/' . $controller_name . '.php'; // Путь до файла в маленьком регистре
+    //$filename = 'controllers/comment.php'; // Путь до файла в маленьком регистре
+    //}
+
     // Если файл контроллера существует мы его подключаем
     if (file_exists($filename)) {
         require_once $filename;
@@ -59,5 +54,7 @@ try {
 } catch (Exception $e) { // В случае ошибки подключается файл 404.php
     require 'errors/404.php';
 }
+
+
 
 // Третий($routes[3]) ложится параметром для метода!!!!!!!!!!!!!!!!!!

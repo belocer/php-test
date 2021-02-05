@@ -78,7 +78,7 @@ let app = new Vue({
     },
     // Для загрузки комментариев из БД
     getDataComment () {
-      fetch('/Comment/getComment',
+      fetch('/comment/getComment',
         {
           method: 'GET',
           headers: {'content-type': 'application/x-www-form-urlencoded'}
