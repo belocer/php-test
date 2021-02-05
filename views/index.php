@@ -59,6 +59,7 @@ echo '</pre>';*/
                             <label for="user_name" class="form__label">Имя</label>
                             <input type="text" id="user_name" name="user_name" class="form__input"
                                    placeholder="Ваше имя"
+                                   required
                                    v-model="user_name">
                         </div>
 
@@ -66,6 +67,7 @@ echo '</pre>';*/
                             <label for="user_email" class="form__label">E-mail</label>
                             <input type="email" id="user_email" name="user_email" class="form__input"
                                    placeholder="Ваш E-mail"
+                                   required
                                    v-model="user_email">
                         </div>
 
@@ -73,6 +75,7 @@ echo '</pre>';*/
                             <label for="comment_title" class="form__label">Заголовок комментария</label>
                             <input type="text" id="comment_title" name="comment_title" class="form__input"
                                    placeholder="Заголовок"
+                                   required
                                    v-model="comment_title">
                         </div>
 
@@ -80,6 +83,7 @@ echo '</pre>';*/
                             <label for="comment_text" class="form__label">Комментарий</label>
                             <textarea id="comment_text" name="comment_text" rows="4" class="form__textarea"
                                       placeholder="Комментарий"
+                                      required
                                       v-model="comment_text"></textarea>
                         </div>
 
